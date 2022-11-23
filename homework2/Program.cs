@@ -41,14 +41,14 @@ namespace homework2
             var buyprice = float.Parse(UIbuyprice);
 
             Console.WriteLine("Please enter the sell price");
-            var UIsell = Console.ReadLine();
-            float sell = float.Parse(UIsell);
+            var UIsellprice = Console.ReadLine();
+            float sellprice = float.Parse(UIsellprice);
 
-            Console.WriteLine("Please enter the amount you soldt");
+            Console.WriteLine("Please enter the amount you sold");
             var UInominalsold = Console.ReadLine();
             var nominalsold = float.Parse(UInominalsold);
 
-            double profil = (nominalsold * buyprice) - (nominalsold * sell);
+            double profil = (nominalsold * buyprice) - (nominalsold * sellprice);
 
             Console.WriteLine($"Your profit is: {profil}");
         }
