@@ -1,54 +1,45 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace homework2
 {
     class Program
     {
-        enum TransactionType
-        {
-            Buy = 1,
-            Sell = -1
-        }
-
         static void Main(string[] args)
         {
-
+                      
             Console.WriteLine("Input the nominal of the trade");
-            var UInominal = Console.ReadLine();
-            var nominal = float.Parse(UInominal);
+            var userInput = Console.ReadLine();
+            var nominal = double.Parse(userInput);
 
             Console.WriteLine("Input the price of the trade");
-            var UIprice = Console.ReadLine();
-            float price = float.Parse(UInominal);
+            userInput = Console.ReadLine();
+            var price = double.Parse(userInput);
 
             Console.WriteLine("Input the type of the trade");
              
             TransactionType trcType;
-            string userInput = Console.ReadLine();
+            userInput = Console.ReadLine();
             trcType = (TransactionType) Enum.Parse(typeof(TransactionType), userInput,true);
 
-            double currentValue = ((double)trcType) * nominal * price;
-            
+            double currentValue = nominal * price;
+            currentValue = (trcType == TransactionType.Buy) ? currentValue: -currentValue;
+
             Console.WriteLine($"The current value of your investment is: {currentValue}");
 
             //Assignment 2
             Console.WriteLine("If you want to calculate the profit of a sale, please enter the buy price");
-            var UIbuyprice = Console.ReadLine();
-            var buyprice = float.Parse(UIbuyprice);
+            userInput = Console.ReadLine();
+            var buyprice = double.Parse(userInput);
 
             Console.WriteLine("Please enter the sell price");
-            var UIsellprice = Console.ReadLine();
-            float sellprice = float.Parse(UIsellprice);
+            userInput = Console.ReadLine();
+            double sellprice = double.Parse(userInput);
 
             Console.WriteLine("Please enter the amount you sold");
-            var UInominalsold = Console.ReadLine();
-            var nominalsold = float.Parse(UInominalsold);
+            userInput = Console.ReadLine();
+            var nominalsold = double.Parse(userInput);
 
-            double profil = (nominalsold * buyprice) - (nominalsold * sellprice);
+            double profil = (nominalsold * sellprice) - (nominalsold * buyprice);
 
             Console.WriteLine($"Your profit is: {profil}");
         }
