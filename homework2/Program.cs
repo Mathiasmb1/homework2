@@ -34,6 +34,23 @@ namespace homework2
             double currentValue = ((double)trcType) * nominal * price;
             
             Console.WriteLine($"The current value of your investment is: {currentValue}");
-         }
+
+            //Assignment 2
+            Console.WriteLine("If you want to calculate the profit of a sale, please enter the buy price");
+            var UIbuyprice = Console.ReadLine();
+            var buyprice = float.Parse(UIbuyprice);
+
+            Console.WriteLine("Please enter the sell price");
+            var UIsell = Console.ReadLine();
+            float sell = float.Parse(UIsell);
+
+            Console.WriteLine("Please enter the amount you soldt");
+            var UInominalsold = Console.ReadLine();
+            var nominalsold = float.Parse(UInominalsold);
+
+            double profil = (nominalsold * buyprice) - (nominalsold * sell);
+
+            Console.WriteLine($"Your profit is: {profil}");
+        }
     }
 }
